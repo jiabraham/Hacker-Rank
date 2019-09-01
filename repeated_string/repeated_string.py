@@ -6,6 +6,8 @@ import random
 import re
 import sys
 
+#IN PROGRESS 09/01/2019
+
 # Complete the repeatedString function below.
 def repeatedString(s, n):
     
