@@ -19,9 +19,6 @@ def twoStrings(s1, s2):
     for i in range(0, len(s1)):
         if (total_dict[s1[i:i+1]] == "second"):
             return "YES"
-    #for i in (0, len(s2)):
-    #    if (total_dict[s2[i:i+1]] == "f"):
-    #        return "YES"
     
     return "NO"
 if __name__ == '__main__':
