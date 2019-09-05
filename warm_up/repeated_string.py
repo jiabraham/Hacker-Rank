@@ -6,8 +6,6 @@ import random
 import re
 import sys
 
-#IN PROGRESS 09/01/2019
-
 # Complete the repeatedString function below.
 def repeatedString(s, n):
     
@@ -22,10 +20,11 @@ def repeatedString(s, n):
     total_a_count = complete_string_a_count
     incomplete_repeat_length = n - (complete_string_repeats*len(s))
 
-    for i in range(len(s)-incomplete_repeat_length, len(s)):
+    for i in range(0, incomplete_repeat_length):
         if (s[i:i+1] == 'a'):
             total_a_count += 1
     
+
     return total_a_count
 
 
