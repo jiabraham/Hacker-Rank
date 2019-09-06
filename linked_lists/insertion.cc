@@ -2,8 +2,6 @@
 
 using namespace std;
 
-//IN PROGRESS
-
 class SinglyLinkedListNode {
     public:
         int data;
@@ -61,63 +59,25 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
 
 // Complete the insertNodeAtPosition function below.
 
-/*
- * For your reference:
- *
- * SinglyLinkedListNode {
- *     int data;
- *     SinglyLinkedListNode* next;
- * };
- *
- */
+
+ 
+ //SinglyLinkedListNode {
+  //    int data;
+   //   SinglyLinkedListNode* next;
+  //};
+ 
 SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* head, int data, int position) {
 
-    SinglyLinkedListNode* cur_node = head;
-    insert = create_node
-    int i = 0;
-    while (i != position-1) {
-        cur_node = head->next;
-        i++;
+    SinglyLinkedListNode* cur = head;
+    SinglyLinkedListNode* insert = (SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
+    insert->data = data;
+    for (int i = 0; i < position-1; i++) {
+        cur = cur->next;
     }
-    
-    return head;
+    insert->next = cur->next;
+    cur->next = insert;
 
+    return head;
 }
 
 int main()
-{
-    ofstream fout(getenv("OUTPUT_PATH"));
-
-    SinglyLinkedList* llist = new SinglyLinkedList();
-
-    int llist_count;
-    cin >> llist_count;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    for (int i = 0; i < llist_count; i++) {
-        int llist_item;
-        cin >> llist_item;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        llist->insert_node(llist_item);
-    }
-
-    int data;
-    cin >> data;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    int position;
-    cin >> position;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    SinglyLinkedListNode* llist_head = insertNodeAtPosition(llist->head, data, position);
-
-    print_singly_linked_list(llist_head, " ", fout);
-    fout << "\n";
-
-    free_singly_linked_list(llist_head);
-
-    fout.close();
-
-    return 0;
-}
