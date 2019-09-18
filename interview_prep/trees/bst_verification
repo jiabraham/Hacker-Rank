@@ -1,6 +1,5 @@
 /* Hidden stub code will pass a root argument to the function below. Complete the function to solve the challenge. Hint: you may want to write one or more helper functions.  
 
-/*IN PROGRESS*/
 The Node struct is defined as follows:
 	struct Node {
 		int data;
@@ -10,39 +9,27 @@ The Node struct is defined as follows:
 */
 	bool checkBST(Node* root) {
 		bool BST = true;
-        int counter = 0;
-        traverseBST(root, BST, counter);
+        traverseBST(root, BST);
         return BST;
 	}
-    void traverseBST(Node* root, bool BST, int counter) {
-        counter++;
-        cout << "counter = " << counter << endl;
-        cout << "root->data = " << root->data << endl;
+    void traverseBST(Node* root, bool BST) {
         if (root->left == NULL && root->right == NULL) {
             return;
         }
-        else if (root->left == NULL) {
+        if (root->left == NULL) {
             if (root->right->data < root->data) {
                 BST = false;
                 return;
             }
-            traverseBST(root->right, BST, counter);
+            traverseBST(root->right, BST);
         }
-        else if (root->right == NULL) {
-            if (root->left->data > root->data) {
+        if (root->right == NULL) {
+            if (root->left->data < root->data) {
                 BST = false;
                 return;
             }
-            traverseBST(root->left, BST, counter);
+            traverseBST(root->left, BST);
         }
-        else {
-            if (root->right->data < root->data || root->left->data > root->data) {
-                BST = false;
-                return;
-            }
-            
-            traverseBST(root->right, BST, counter);
-            traverseBST(root->left, BST, counter);
-        }
-        
+        traverseBST(root->left, BST);
+        traverseBST(root->right, BST);
     }
