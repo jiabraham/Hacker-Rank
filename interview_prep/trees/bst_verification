@@ -1,35 +1,29 @@
-/* Hidden stub code will pass a root argument to the function below. Complete the function to solve the challenge. Hint: you may want to write one or more helper functions.  
+""" Node is defined as
+class node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+"""
 
-The Node struct is defined as follows:
-	struct Node {
-		int data;
-		Node* left;
-		Node* right;
-	}
-*/
-	bool checkBST(Node* root) {
-		bool BST = true;
-        traverseBST(root, BST);
-        return BST;
-	}
-    void traverseBST(Node* root, bool BST) {
-        if (root->left == NULL && root->right == NULL) {
-            return;
-        }
-        if (root->left == NULL) {
-            if (root->right->data < root->data) {
-                BST = false;
-                return;
-            }
-            traverseBST(root->right, BST);
-        }
-        if (root->right == NULL) {
-            if (root->left->data < root->data) {
-                BST = false;
-                return;
-            }
-            traverseBST(root->left, BST);
-        }
-        traverseBST(root->left, BST);
-        traverseBST(root->right, BST);
-    }
+def checkBST(root):
+    BST = []
+    distinct = {}
+    traverseBST(root, BST)
+    for i in range(0, len(BST)-1):
+        if BST[i] > BST[i+1]:
+            return False
+        if BST[i] in distinct:
+            return False
+        distinct[BST[i]] = 1
+    return True
+
+    
+    
+def traverseBST(root, BST):
+    if root.left:
+        traverseBST(root.left, BST)
+    BST.append(root.data)
+    if root.right:
+        traverseBST(root.right, BST)
+    
