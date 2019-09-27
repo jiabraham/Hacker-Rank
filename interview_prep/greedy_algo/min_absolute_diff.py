@@ -10,7 +10,7 @@ import sys
 def minimumAbsoluteDifference(arr):
     min_dif = 10000000
 
-    arr = sorted(arr)
+    arr_sorted = sorted(arr)
 
     for i in range(0, len(arr)-1):
         if (abs(arr[i]-arr[i+1]) < min_dif):
