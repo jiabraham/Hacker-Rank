@@ -12,6 +12,7 @@ def makeAnagram(a, b):
     b_histogram = {}
 
     deletions = 0
+    additions = 0
 
     #initialize histograms
     for i in range(0, 26):
